@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: publisher-deployment
+spec:
+  replicas: 1
+  selector:  # Add this section
+    matchLabels:
+      app: publisher  # Ensure this matches the labels in the pod template
+  template:
+    metadata:
+      labels:  # Add matching labels here
+        app: publisher  # Ensure this matches the selector
+    spec:
+      containers:
+        - name: publisher
+          image: publisher
+          imagePullPolicy: Never
+          volumeMounts:
+            - name: config-volume
+              mountPath: /publisher
+      volumes:
+        - name: config-volume
+          configMap:
+            name: publisher-config
+

@@ -1,0 +1,14 @@
+client:
+  host: 192.168.2.74
+  port: 1883
+  keepalive: 60
+  topic: data/temp
+
+omit:
+  omit_time: 15
+
+thread:
+  thread_count: 3
+
+time:
+  sleep_time: 10
