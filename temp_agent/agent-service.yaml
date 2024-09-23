@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-service
+spec:
+  type: NodePort  # Exposes the service on a port on each node
+  selector:
+    app: agent  # This should match the labels in your deployment
+  ports:
+    - port: 8111          # The port that the service will expose
+      targetPort: 8111    # The port that the container listens on
+      nodePort: 32300      # Optional: specify a custom NodePort (can be any valid port > 30000)

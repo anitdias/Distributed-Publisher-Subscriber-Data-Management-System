@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agent-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agent
+  template:
+    metadata:
+      labels:
+        app: agent
+    spec:
+      containers:
+        - name: agent
+          image: temp_agent
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8111
+          volumeMounts:
+            - name: config-volume
+              mountPath: /publisher
+      volumes:
+        - name: config-volume
+          configMap:
+            name: publisher-config
+
