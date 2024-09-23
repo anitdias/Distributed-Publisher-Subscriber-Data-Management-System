@@ -1,0 +1,14 @@
+client:
+  host: 192.168.2.74
+  port: 1883
+  keepalive: 60
+  topic: data/temp
+
+database:
+  DATABASE_USER: postgres
+  DATABASE_PASSWORD: root
+  DATABASE_HOST: 192.168.2.74
+  DATABASE_PORT: 5432
+
+omit:
+  omit_time: 15
