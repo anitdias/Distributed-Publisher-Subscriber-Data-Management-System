@@ -4,13 +4,13 @@ metadata:
   name: publisher-deployment
 spec:
   replicas: 1
-  selector:  # Add this section
+  selector:  
     matchLabels:
-      app: publisher  # Ensure this matches the labels in the pod template
+      app: publisher  
   template:
     metadata:
-      labels:  # Add matching labels here
-        app: publisher  # Ensure this matches the selector
+      labels:  
+        app: publisher  
     spec:
       containers:
         - name: publisher
